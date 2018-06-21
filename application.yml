@@ -1,16 +1,16 @@
 spring:
   profiles:
     active:
-	- dev
+      - dev
 ---
 spring:
   profiles: dev #开发环境
   application:
-	 name: microservicecloud-config-gaosheng-dev
+         name: microservicecloud-config-gaosheng-dev
 ---
 spring:
   profiles: test #测试环境
   application:
-	 name: microservicecloud-config-gaosheng-test
+         name: microservicecloud-config-gaosheng-test
 #保存为utf-8
 
