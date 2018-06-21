@@ -1,0 +1,60 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mysql.Driver
+    url: jdbc:mysql://localhost:3306/clouddb01
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.gaosheng.springcloud.entity    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:eureka7001.com:7001/eureka
+---                     
+server:
+  port: 8001
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mysql.Driver
+    url: jdbc:mysql://localhost:3306/clouddb01
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.gaosheng.springcloud.entity    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:eureka7001.com:7001/eureka   
